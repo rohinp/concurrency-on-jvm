@@ -1,7 +1,7 @@
-# concurrency.util.concurrency-on-jvm
+# Concurrency on jvm
 The project contains notes and details of concurrency.util.concurrency techniques, patterns and models on JVM.
 
->>> Note: Make sure you have the jdk with project loom installed from here https://jdk.java.net/loom/
+**Note: Make sure you have the jdk with loom installed from here https://jdk.java.net/loom/**
 
 1. Thread concurrency.util.concurrency.basics
     > 1. Thread Creation
