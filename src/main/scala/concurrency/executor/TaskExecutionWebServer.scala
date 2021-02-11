@@ -10,7 +10,6 @@ import java.util.concurrent.Executors
 import scala.concurrent.ExecutionContext
 
 @main def taskExecutionWebServer =
-  val NTHREADS = 100
   val exec = ExecutionContext.global
   val socket = new ServerSocket(80)
     
