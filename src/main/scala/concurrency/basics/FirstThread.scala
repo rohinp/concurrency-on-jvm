@@ -3,12 +3,16 @@ package concurrency.basics
 import concurrency.Utilities._
 
 @main def runningThread(): Unit = {
-  thread{
-    Thread.sleep(500)
-    log("I'm a new thread")
+  userThread{
+    Thread.sleep(200)
+    log("I'm a user thread and JVM will wait for me to finish")
   }
-  //Main thread is by default user thread
-  log(s"Thread.currentThread().isDaemon ${Thread.currentThread().isDaemon}")
-  log("I'm in main")
+  
+  daemonThread{
+    Thread.sleep(500)
+    log("I'm a daemon thread and JVM will not wait for me to finish, I wont be printed on screen")
+  }
+  
+  log(s"Main thread is by default user thread Thread.currentThread().isDaemon ${Thread.currentThread().isDaemon}")
 }
 
