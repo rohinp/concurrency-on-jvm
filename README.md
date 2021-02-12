@@ -1,9 +1,31 @@
 # Concurrency on jvm
-The project contains notes and details of concurrency.util.concurrency techniques, patterns and models on JVM.
+The project contains notes and details of concurrency techniques, patterns and models on JVM.
+All the examples are done using scala3, though it's just the matter of syntax and can be referred by java, scala, kotlin, etc. developers on JVM
 
-**Note: Make sure you have the jdk with loom installed from here https://jdk.java.net/loom/**
+**Note:** 
+* Make sure you have the jdk with loom installed from here https://jdk.java.net/loom/
+* It's assumed you are some basic Thread and java concurrency.
+* Lot of theory is ignored and here you will find simple notes and related examples.
+* The intention is to enhance your current understanding of currency on JVM
+* If any issue with the doc or examples please create an issue on github, and we will try to fix is ASAP.
 
-1. Thread concurrency.util.concurrency.basics
+Please refer to individual package readme for more details on how to follow the code, examples and notes.
+
+As such there is no strict sequence or direct reference connection here but if below sequence followed make more sense ;)
+
+1. [concurrency.basics](src/main/scala/concurrency/basics)
+1. [concurrency.executor](src/main/scala/concurrency/executor)
+1. [concurrency.futures](src/main/scala/concurrency/futures)
+1. [concurrency.promises](src/main/scala/concurrency/promises)
+1. [concurrency.datastructures](src/main/scala/concurrency/)
+1. [concurrency.tooling](src/main/scala/concurrency/)
+1. [concurrency.cats-effects](src/main/scala/concurrency/)
+1. [concurrency.akka](src/main/scala/concurrency/)
+
+
+
+### Table of contents:
+1. Thread basics
     > 1. Thread Creation
     > 1. User vs Daemon Thread
     > 1. Synchronization

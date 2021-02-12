@@ -4,13 +4,31 @@ import java.io.{PrintWriter, StringWriter}
 
 object Utilities:
   
-  def thread[T](body: => T): Thread = {
+  /**
+   * A simple thread creation utility. As we all know that java threads have a direct maping to the OS threads.
+   * Every process, can create some n * 100's of threads, and it seems limited as we know that every thread creation take 1MB os stack space.
+   * OS can be optimized and can allow a process to create may be n * 1000's of threads. 
+   * */
+  def thread[T](body: => T, isDeamon:Boolean = false): Thread = {
     val t = new Thread(new Runnable {
       override def run(): Unit = body
     })
+    t.setDaemon(isDeamon)
     t.start()
     t
   }
+  
+  /**
+   * A User thread created:
+   * Note: JVM exists only once all the user threads are done execution 
+   * */
+  def userThread[T](body: => T): Thread = thread(body)
+
+  /**
+   * A Daemon thread created:
+   * Note: JVM does not waits for the daemon threads to finish 
+   * */
+  def daemonThread[T](body: => T): Thread = thread(body, true)
 
   def log(msg:String) = println(s"${Thread.currentThread().getName} -> $msg")
 
@@ -21,6 +39,8 @@ object Utilities:
   }
 
   /**
+   * Notes from JAVA docs
+   * 
    * {@code Thread} also supports the creation of <i>virtual threads</i> that
    * are scheduled by the Java virtual machine using a small set of platform threads
    * that are used as <em>carrier threads</em>.
@@ -36,3 +56,11 @@ object Utilities:
    * thread.
    * */
   def fiber[T](body: => T): Thread = Thread.startVirtualThread(() => body)
+
+  /**
+   * This is another way to create a virtual thread.
+   * Thread class provides the Builder interface which is inside Thread class.
+   * Will suggest to browse the source code on how the builder is implemented.
+   * In this case it creates a virtual thread but does not starts it does in the startVirtualThread static method
+   * */
+  def makeFiber[T](body: => T): Thread = Thread.builder().virtual().task(() => body).build()
