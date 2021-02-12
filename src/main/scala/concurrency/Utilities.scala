@@ -57,4 +57,10 @@ object Utilities:
    * */
   def fiber[T](body: => T): Thread = Thread.startVirtualThread(() => body)
 
+  /**
+   * This is another way to create a virtual thread.
+   * Thread class provides the Builder interface which is inside Thread class.
+   * Will suggest to browse the source code on how the builder is implemented.
+   * In this case it creates a virtual thread but does not starts it does in the startVirtualThread static method
+   * */
   def makeFiber[T](body: => T): Thread = Thread.builder().virtual().task(() => body).build()
