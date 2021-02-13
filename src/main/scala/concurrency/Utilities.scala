@@ -1,6 +1,7 @@
 package concurrency
 
 import java.io.{PrintWriter, StringWriter}
+import java.util.Random
 
 object Utilities:
   
@@ -55,7 +56,7 @@ object Utilities:
    * to the <i>current thread</i>, will return the {@code Thread} object for the virtual
    * thread.
    * */
-  def fiber[T](body: => T): Thread = Thread.startVirtualThread(() => body)
+  def fiber[T](body: => T): Thread = Thread.startVirtualThread(s"Fiber", () => body)
 
   /**
    * This is another way to create a virtual thread.

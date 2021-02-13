@@ -7,6 +7,9 @@ import concurrency.Utilities._
  * Virtual threads are not mapped to the OS thread, a high level understanding is there is a pool of threads which java manages for us.
  * And all our tasks will run in one of those threads in the pool. The default scheduler used is ForkJoin.
  * The way java manages virtual threads you can leterally run million or may be billions of them without frying out your CPU.
+ * 
+ * Remember that subclass of Thread will still map to OS thread, and use builder or convinient methods from Thread class to create virtual threads.
+ * 
  * */
 @main def firstVirtualThread() =
   for {

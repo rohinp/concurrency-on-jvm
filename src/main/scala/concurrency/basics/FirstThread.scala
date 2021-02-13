@@ -1,7 +1,11 @@
 package concurrency.basics
 
 import concurrency.Utilities._
-
+/**
+ * In build.sbt we have set fork to true to make sure that the threads are 
+ * spawn in a seperate jvm and not the same where sbt is running
+ *
+ * */
 @main def runningThread(): Unit = {
   userThread{
     Thread.sleep(200)
