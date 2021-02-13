@@ -2,6 +2,7 @@ package concurrency
 
 import java.io.{PrintWriter, StringWriter}
 import java.util.Random
+import scala.io.AnsiColor._
 
 object Utilities:
   
@@ -31,7 +32,7 @@ object Utilities:
    * */
   def daemonThread[T](body: => T): Thread = thread(body, true)
 
-  def log(msg:String) = println(s"${Thread.currentThread().getName} -> $msg")
+  def log(msg:String) = println(s"${BLUE}${BOLD}${Thread.currentThread().getName}${RESET}${BLINK} -> ${RESET} ${YELLOW}${BOLD}$msg${RESET}")
 
   def stackTraceToString(e:Throwable): String = {
     val sw = new StringWriter

@@ -31,7 +31,7 @@ def looper(count:Int):Unit =
   for (i <- 0 until 2000000) {
     //threads.appended(userThread(() => looper(1)))
     threads.appended(fiber(() => looper(1)))
-    if (i % 1000 == 0) log(s"$i thread started")
+    if (i % 1000 == 0) log(s"$i fiber started")
   }
   // Join all the threads
   threads.foreach((t: Thread) => {
