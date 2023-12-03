@@ -8,4 +8,4 @@ lazy val root = project
     useScala3doc := true, 
     fork := true //this will make sure we run all our threads in a saperate JVM
   )
-libraryDependencies += "org.typelevel" %% "cats-core" % "2.3.1" withSources()
+libraryDependencies += "org.typelevel" %% "cats-core" % "2.4.2" withSources()
